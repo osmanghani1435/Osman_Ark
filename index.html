@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Osman ARK. — Editor & VFX Artist</title>
+  <meta name="description" content="Portfolio Osman ARK — Editor & VFX Artist. Menggabungkan seni bercerita dengan efek visual berkualitas tinggi." />
+  <meta property="og:title" content="Osman ARK. — Editor & VFX Artist" />
+  <meta property="og:description" content="Portfolio Osman ARK — Editor & VFX Artist. Menggabungkan seni bercerita dengan efek visual berkualitas tinggi." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Scroll progress + custom cursor + particle canvas -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor"><span class="cursor__label"></span></div>
+  <canvas id="trail" class="trail" aria-hidden="true"></canvas>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#home" class="logo" aria-label="Osman ARK home">OSMAN ARK<span>.</span></a>
+
+      <nav class="nav" id="nav" aria-label="Navigasi utama">
+        <a href="#home" class="nav__link is-active" data-nav>Home</a>
+        <a href="#karya" class="nav__link" data-nav>Karya</a>
+        <a href="#tentang" class="nav__link" data-nav>Tentang</a>
+        <a href="#perjalanan" class="nav__link" data-nav>Perjalanan</a>
+        <a href="#kontak" class="nav__link" data-nav>Kontak</a>
+        <a href="#kontak" class="btn btn--primary btn--sm nav__cta">Hire Me</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="hero__bg-word" aria-hidden="true">PORTFOLIO</div>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content" data-reveal>
+          <span class="eyebrow"><span class="eyebrow__dot"></span>Hello, I'm</span>
+          <h1 class="hero__title">OSMAN ARK<span class="accent">.</span></h1>
+          <p class="hero__role">EDITOR <span class="amp">&amp;</span> VFX ARTIST</p>
+          <p class="hero__desc">
+            Menggabungkan seni bercerita dengan efek visual berkualitas tinggi untuk
+            menciptakan konten yang memukau dan tak terlupakan.
+          </p>
+          <div class="hero__actions">
+            <button class="btn btn--primary" id="openReel" data-cursor="PLAY">
+              <i class="fa-solid fa-play"></i> Play Showreel
+            </button>
+            <a href="#karya" class="btn btn--ghost">Lihat Karya <i class="fa-solid fa-arrow-down"></i></a>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-reveal data-reveal-delay="150">
+          <div class="hero__frame">
+            <span class="corner corner--tl"></span><span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span><span class="corner corner--br"></span>
+            <img
+              src="file_00000000d9c88211b70510c3cc86f6f5.png"
+              alt="Potret Osman ARK, Editor & VFX Artist"
+              class="hero__photo"
+              loading="eager"
+            />
+            <div class="hero__tag mono"><span class="rec"></span>REC 00:00:24:12</div>
+            <div class="hero__tag hero__tag--br mono">4K • 24 FPS • LOG</div>
+          </div>
+        </div>
+
+        <aside class="hero__stats" data-reveal data-reveal-delay="300">
+          <div class="stat">
+            <span class="stat__num"><span data-counter="3">0</span>+</span>
+            <span class="stat__label">Years<br />Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-counter="18">0</span>+</span>
+            <span class="stat__label">Projects<br />Completed</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-counter="10">0</span>+</span>
+            <span class="stat__label">Awards /<br />Recognition</span>
+          </div>
+        </aside>
+      </div>
+
+      <a href="#karya" class="scroll-hint mono" aria-label="Scroll ke bawah">
+        <span class="scroll-hint__line"></span>SCROLL
+      </a>
+    </section>
+
+    <!-- ================= WORKS ================= -->
+    <section class="works section" id="karya">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div>
+            <span class="eyebrow">My Selected Work</span>
+            <h2 class="section__title">KARYA YANG <span class="accent">BICARA.</span></h2>
+          </div>
+          <div class="works__nav">
+            <button class="icon-btn" id="worksPrev" aria-label="Sebelumnya"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="icon-btn" id="worksNext" aria-label="Berikutnya"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="filters" id="filters" data-reveal role="tablist" aria-label="Filter kategori">
+          <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">Semua</button>
+          <button class="filter" data-filter="vfx" role="tab">VFX</button>
+          <button class="filter" data-filter="film" role="tab">Film</button>
+          <button class="filter" data-filter="commercial" role="tab">Commercial</button>
+          <button class="filter" data-filter="photography" role="tab">Photography</button>
+          <button class="filter" data-filter="music" role="tab">Music Video</button>
+          <button class="filter" data-filter="manipulasi" role="tab">Manipulasi</button>
+          <button class="filter" data-filter="animasi" role="tab">Animasi</button>
+        </div>
+      </div>
+
+      <div class="works__track-wrap">
+        <div class="works__track" id="worksTrack">
+          <article class="work" data-category="vfx" data-reveal>
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" alt="VFX Showreel 24" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">01</span>
+              <div>
+                <h3 class="work__title">VFX SHOWREEL 24</h3>
+                <p class="work__sub">VFX Compositing • Editor</p>
+              </div>
+              <span class="work__year mono">2024</span>
+            </div>
+          </article>
+
+          <article class="work" data-category="film" data-reveal data-reveal-delay="100">
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1000&q=80" alt="Series Teaser" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">02</span>
+              <div>
+                <h3 class="work__title">SERIES : TEASER</h3>
+                <p class="work__sub">Offline &amp; Online Editor</p>
+              </div>
+              <span class="work__year mono">2024</span>
+            </div>
+          </article>
+
+          <article class="work" data-category="animasi" data-reveal data-reveal-delay="200">
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1515630278258-407f66498911?auto=format&fit=crop&w=1000&q=80" alt="Cyberpunk Environment" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">03</span>
+              <div>
+                <h3 class="work__title">CYBERPUNK ENVIRONMENT</h3>
+                <p class="work__sub">3D Environment • CGI</p>
+              </div>
+              <span class="work__year mono">2023</span>
+            </div>
+          </article>
+
+          <article class="work" data-category="commercial" data-reveal>
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80" alt="Brand Commercial" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">04</span>
+              <div>
+                <h3 class="work__title">BRAND COMMERCIAL</h3>
+                <p class="work__sub">Director of Edit • Color</p>
+              </div>
+              <span class="work__year mono">2023</span>
+            </div>
+          </article>
+
+          <article class="work" data-category="music" data-reveal>
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80" alt="Music Video" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">05</span>
+              <div>
+                <h3 class="work__title">MUSIC VIDEO : NEON</h3>
+                <p class="work__sub">Editor • Motion Graphics</p>
+              </div>
+              <span class="work__year mono">2022</span>
+            </div>
+          </article>
+
+          <article class="work" data-category="photography" data-reveal>
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1000&q=80" alt="Photography Series" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">06</span>
+              <div>
+                <h3 class="work__title">STILL FRAMES</h3>
+                <p class="work__sub">Photography • Retouch</p>
+              </div>
+              <span class="work__year mono">2022</span>
+            </div>
+          </article>
+
+          <article class="work" data-category="manipulasi" data-reveal>
+            <a href="#" class="work__media" data-cursor="VIEW">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" alt="Digital Manipulation" loading="lazy" />
+              <span class="work__play"><i class="fa-solid fa-play"></i></span>
+            </a>
+            <div class="work__meta">
+              <span class="work__index mono">07</span>
+              <div>
+                <h3 class="work__title">SURREAL MANIPULATION</h3>
+                <p class="work__sub">Photo Manipulation • Matte Paint</p>
+              </div>
+              <span class="work__year mono">2021</span>
+            </div>
+          </article>
+        </div>
+        <p class="works__empty" id="worksEmpty" hidden>Belum ada karya di kategori ini.</p>
+      </div>
+
+      <!-- Trusted by marquee -->
+      <div class="container">
+        <p class="trusted__label mono" data-reveal>TRUSTED BY &amp; COLLABORATION</p>
+      </div>
+      <div class="marquee" aria-label="Partner dan kolaborator">
+        <div class="marquee__track">
+          <span class="marquee__item">NETFLIX</span><span class="marquee__dot"></span>
+          <span class="marquee__item">MAGMA ENTERTAINMENT</span><span class="marquee__dot"></span>
+          <span class="marquee__item">RAIN CREATIVE</span><span class="marquee__dot"></span>
+          <span class="marquee__item">BATIK MUSIC</span><span class="marquee__dot"></span>
+          <span class="marquee__item">MD ENTERTAINMENT</span><span class="marquee__dot"></span>
+          <span class="marquee__item">RAPI FILMS</span><span class="marquee__dot"></span>
+          <span class="marquee__item">PLMP</span><span class="marquee__dot"></span>
+          <!-- duplicate for seamless loop -->
+          <span class="marquee__item" aria-hidden="true">NETFLIX</span><span class="marquee__dot"></span>
+          <span class="marquee__item" aria-hidden="true">MAGMA ENTERTAINMENT</span><span class="marquee__dot"></span>
+          <span class="marquee__item" aria-hidden="true">RAIN CREATIVE</span><span class="marquee__dot"></span>
+          <span class="marquee__item" aria-hidden="true">BATIK MUSIC</span><span class="marquee__dot"></span>
+          <span class="marquee__item" aria-hidden="true">MD ENTERTAINMENT</span><span class="marquee__dot"></span>
+          <span class="marquee__item" aria-hidden="true">RAPI FILMS</span><span class="marquee__dot"></span>
+          <span class="marquee__item" aria-hidden="true">PLMP</span><span class="marquee__dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= AWARDS ================= -->
+    <section class="awards section" id="penghargaan">
+      <div class="container awards__grid">
+        <div class="awards__left" data-reveal>
+          <span class="eyebrow">Recognition &amp; Awards</span>
+          <h2 class="section__title">THE WORK.<br />THE <span class="accent">RECOGNITION.</span></h2>
+
+          <div class="laurel">
+            <svg class="laurel__leaf laurel__leaf--l" viewBox="0 0 60 120" aria-hidden="true">
+              <path d="M50 5c-20 10-35 30-38 55 0 0 20-5 30-25-15 20-20 45-5 70 0 0 12-18 10-40-5 25 5 45 20 50" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M12 60c-8 0-10-15-4-22M20 85c-9 2-14-10-10-18M35 105c-8 4-16-5-14-13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <span class="laurel__num"><span data-counter="10">0</span>+</span>
+            <svg class="laurel__leaf laurel__leaf--r" viewBox="0 0 60 120" aria-hidden="true">
+              <path d="M50 5c-20 10-35 30-38 55 0 0 20-5 30-25-15 20-20 45-5 70 0 0 12-18 10-40-5 25 5 45 20 50" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M12 60c-8 0-10-15-4-22M20 85c-9 2-14-10-10-18M35 105c-8 4-16-5-14-13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <p class="lead">
+            Karya yang tidak hanya memikat hati penonton, tetapi juga diakui oleh juri
+            dan festival terkemuka.
+          </p>
+          <a href="#kontak" class="link-arrow">Lihat Sertifikat <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <ul class="awards__list" id="awardsList" data-reveal data-reveal-delay="150">
+          <li class="award" data-img="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=70">
+            <div><h3 class="award__title">1st Place</h3><p class="award__fest">Best Competency Film</p></div>
+            <span class="award__arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <span class="award__year mono">2024</span>
+          </li>
+          <li class="award" data-img="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=70">
+            <div><h3 class="award__title">Best Competency Film</h3><p class="award__fest">National Film Festival</p></div>
+            <span class="award__arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <span class="award__year mono">2024</span>
+          </li>
+          <li class="award" data-img="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=600&q=70">
+            <div><h3 class="award__title">Best Short Film</h3><p class="award__fest">Indie Movie Fest</p></div>
+            <span class="award__arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <span class="award__year mono">2023</span>
+          </li>
+          <li class="award" data-img="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=600&q=70">
+            <div><h3 class="award__title">1st Place, Short Film</h3><p class="award__fest">Festival Film Pelajar</p></div>
+            <span class="award__arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <span class="award__year mono">2022</span>
+          </li>
+          <li class="award" data-img="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=70">
+            <div><h3 class="award__title">1st Place, Short Film</h3><p class="award__fest">Youth Film Festival</p></div>
+            <span class="award__arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <span class="award__year mono">2021</span>
+          </li>
+          <li class="award" data-img="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=70">
+            <div><h3 class="award__title">Best Creative Video</h3><p class="award__fest">Digital Creation Awards</p></div>
+            <span class="award__arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <span class="award__year mono">2020</span>
+          </li>
+        </ul>
+        <img class="award-preview" id="awardPreview" src="" alt="" aria-hidden="true" />
+      </div>
+    </section>
+
+    <!-- ================= BEFORE / AFTER ================= -->
+    <section class="compare section" id="breakdown">
+      <div class="container compare__grid">
+        <div class="compare__text" data-reveal>
+          <span class="eyebrow">VFX Breakdown</span>
+          <h2 class="section__title">FROM RAW.<br />TO <span class="accent">REAL.</span></h2>
+          <p class="lead">
+            Satu adegan, jutaan kemungkinan. Mengubah rekaman mentah menjadi visual
+            yang hidup dan memiliki kedalaman cerita.
+          </p>
+          <div class="compare__legend">
+            <button class="legend is-active" id="legendRaw" data-pos="15"><span class="legend__dot legend__dot--raw"></span>Raw Footage</button>
+            <button class="legend" id="legendFinal" data-pos="85"><span class="legend__dot legend__dot--final"></span>Final Color &amp; VFX</button>
+          </div>
+          <p class="compare__hint mono"><i class="fa-solid fa-arrows-left-right"></i> Geser pembatas untuk membandingkan</p>
+        </div>
+
+        <div class="ba" id="ba" data-reveal data-reveal-delay="150">
+          <img class="ba__img ba__img--after" src="https://images.unsplash.com/photo-1515630278258-407f66498911?auto=format&fit=crop&w=1400&q=80" alt="Hasil akhir color grading dan VFX" />
+          <div class="ba__before" id="baBefore">
+            <img class="ba__img ba__img--before" src="https://images.unsplash.com/photo-1515630278258-407f66498911?auto=format&fit=crop&w=1400&q=80" alt="Rekaman mentah (raw log)" />
+          </div>
+          <div class="ba__handle" id="baHandle">
+            <span class="ba__knob"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></span>
+          </div>
+          <span class="ba__label ba__label--l mono">RAW • LOG</span>
+          <span class="ba__label ba__label--r mono">FINAL • GRADED</span>
+          <input type="range" min="0" max="100" value="50" class="ba__range" id="baRange" aria-label="Pembanding sebelum dan sesudah" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PHILOSOPHY & SKILLS ================= -->
+    <section class="about section" id="tentang">
+      <div class="container">
+        <div class="about__head" data-reveal>
+          <span class="eyebrow">My Philosophy &amp; Skills</span>
+          <h2 class="section__title">BUKAN SEKADAR VISUAL,<br />TAPI <span class="accent">CARA BERCERITA.</span></h2>
+          <p class="lead">
+            Setiap potongan, setiap warna, dan setiap efek punya alasan. Saya percaya
+            bahwa pacing, color grading, dan CGI adalah bahasa — bukan hiasan. Tujuannya
+            satu: membuat penonton merasakan ceritanya.
+          </p>
+        </div>
+
+        <div class="about__grid">
+          <!-- Education & skills -->
+          <article class="card" data-reveal>
+            <h3 class="card__title mono">EDUCATION &amp; SKILLS</h3>
+            <ul class="edu">
+              <li class="edu__item">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div><strong>SMK Telkom Malang</strong><span>Animation / Multimedia</span></div>
+              </li>
+              <li class="edu__item">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <div><strong>Bidang Keahlian</strong><span>VFX, Editing &amp; Post-Production</span></div>
+              </li>
+              <li class="edu__item">
+                <i class="fa-solid fa-diagram-project"></i>
+                <div><strong>Standard Workflow</strong><span>Industry pipeline compliance</span></div>
+              </li>
+            </ul>
+            <p class="card__sub mono">TOOLS</p>
+            <div class="tools">
+              <span class="tool tool--pr" title="Adobe Premiere Pro">Pr</span>
+              <span class="tool tool--ae" title="Adobe After Effects">Ae</span>
+              <span class="tool tool--dv" title="DaVinci Resolve">Dv</span>
+              <span class="tool tool--bl" title="Blender">Bl</span>
+              <span class="tool tool--nk" title="Nuke">Nk</span>
+              <span class="tool tool--ps" title="Adobe Photoshop">Ps</span>
+              <span class="tool tool--ai" title="Adobe Illustrator">Ai</span>
+            </div>
+          </article>
+
+          <!-- Pipeline -->
+          <article class="card" data-reveal data-reveal-delay="100">
+            <h3 class="card__title mono">FROM IDEA TO FINAL FRAME</h3>
+            <ol class="steps">
+              <li class="step">
+                <span class="step__num mono">01</span>
+                <div><strong>PRE-PROD</strong><span>Konsep &amp; Storyboard</span></div>
+              </li>
+              <li class="step">
+                <span class="step__num mono">02</span>
+                <div><strong>EDITING</strong><span>Assembly, Pacing &amp; Offline Cut</span></div>
+              </li>
+              <li class="step">
+                <span class="step__num mono">03</span>
+                <div><strong>VFX &amp; 3D</strong><span>Compositing, Tracking &amp; CGI</span></div>
+              </li>
+              <li class="step">
+                <span class="step__num mono">04</span>
+                <div><strong>COLOR &amp; MASTER</strong><span>Color Grading &amp; Final Delivery</span></div>
+              </li>
+            </ol>
+          </article>
+
+          <!-- Quote -->
+          <article class="card card--red" data-reveal data-reveal-delay="200">
+            <span class="quote__mark" aria-hidden="true">&ldquo;</span>
+            <p class="quote__text">Dari konsep dan storytelling, sampai visual yang sinematik.</p>
+            <div class="quote__sig">
+              <span class="quote__line"></span>
+              <span>Osman ARK</span>
+            </div>
+            <div class="quote__glow" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CAREER ================= -->
+    <section class="career section" id="perjalanan">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div>
+            <span class="eyebrow">Career Journey</span>
+            <h2 class="section__title">TERUS BERGERAK.<br />TERUS <span class="accent">BERKARYA.</span></h2>
+          </div>
+        </div>
+
+        <div class="career__grid">
+          <ol class="timeline" data-reveal>
+            <li class="tl">
+              <span class="tl__dot"></span>
+              <span class="tl__year mono">2023 — SEKARANG</span>
+              <h3 class="tl__role">Freelance Creative</h3>
+              <p class="tl__org">Pekerja Lepas</p>
+              <p class="tl__desc">Mengembangkan berbagai macam proyek komersial, video musik, dan konten branded untuk klien nasional dan internasional.</p>
+            </li>
+            <li class="tl">
+              <span class="tl__dot"></span>
+              <span class="tl__year mono">2022 — 2023</span>
+              <h3 class="tl__role">VFX Artist</h3>
+              <p class="tl__org">Studio / Production House</p>
+              <p class="tl__desc">Compositing, rotoscoping, dan integrasi CGI untuk series dan iklan televisi nasional.</p>
+            </li>
+            <li class="tl">
+              <span class="tl__dot"></span>
+              <span class="tl__year mono">2021 — 2022</span>
+              <h3 class="tl__role">VFX Internship</h3>
+              <p class="tl__org">Magang Spesialis VFX</p>
+              <p class="tl__desc">Belajar pipeline produksi profesional, dari tracking hingga final delivery.</p>
+            </li>
+            <li class="tl">
+              <span class="tl__dot"></span>
+              <span class="tl__year mono">2020 — 2021</span>
+              <h3 class="tl__role">Freelance Editor</h3>
+              <p class="tl__org">Video Editor &amp; Motion Designer</p>
+              <p class="tl__desc">Editing konten digital, motion graphics, dan video promosi untuk UMKM dan brand lokal.</p>
+            </li>
+            <li class="tl">
+              <span class="tl__dot"></span>
+              <span class="tl__year mono">2019 — 2020</span>
+              <h3 class="tl__role">Content Creator</h3>
+              <p class="tl__org">Creative Lead</p>
+              <p class="tl__desc">Memulai perjalanan dengan membuat konten kreatif, eksperimen VFX, dan short film pelajar.</p>
+            </li>
+          </ol>
+
+          <aside class="wins" data-reveal data-reveal-delay="150">
+            <h3 class="wins__title">LITTLE WINS.<br /><span class="accent">BIG MEANING.</span></h3>
+            <ul class="wins__list">
+              <li><i class="fa-solid fa-check"></i> 18+ proyek selesai tepat waktu</li>
+              <li><i class="fa-solid fa-check"></i> 10+ penghargaan festival film</li>
+              <li><i class="fa-solid fa-check"></i> Kolaborasi dengan 7+ studio &amp; label</li>
+              <li><i class="fa-solid fa-check"></i> 1 juta+ total penayangan karya</li>
+              <li><i class="fa-solid fa-check"></i> Mentor VFX untuk komunitas pelajar</li>
+            </ul>
+            <a href="#kontak" class="btn btn--primary btn--block">Mulai Proyek <i class="fa-solid fa-arrow-right"></i></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact section" id="kontak">
+      <div class="container contact__grid">
+        <div class="contact__left" data-reveal>
+          <span class="eyebrow">Let's Talk</span>
+          <h2 class="contact__title">LET'S WORK<br /><span class="accent">TOGETHER.</span></h2>
+          <p class="lead">
+            Punya proyek yang ingin diwujudkan? Mari diskusi dan buat sesuatu yang
+            luar biasa bersama.
+          </p>
+        </div>
+
+        <div class="contact__mid" data-reveal data-reveal-delay="100">
+          <a href="mailto:renandocreative@gmail.com" class="contact__item">
+            <span class="contact__icon"><i class="fa-regular fa-envelope"></i></span>
+            <span><small class="mono">EMAIL</small>renandocreative@gmail.com</span>
+          </a>
+          <a href="https://wa.me/62812" class="contact__item" target="_blank" rel="noopener">
+            <span class="contact__icon"><i class="fa-brands fa-whatsapp"></i></span>
+            <span><small class="mono">WHATSAPP</small>+62 812-XXXX-XXXX</span>
+          </a>
+          <div class="contact__item contact__item--static">
+            <span class="contact__icon"><i class="fa-solid fa-location-dot"></i></span>
+            <span><small class="mono">LOCATION</small>INDONESIA • REMOTE READY</span>
+          </div>
+          <div class="socials">
+            <a href="#" class="social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#" class="social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <a href="#" class="social" aria-label="YouTube"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <a href="#" class="social" aria-label="Behance"><i class="fa-brands fa-behance"></i> Behance</a>
+          </div>
+        </div>
+
+        <a href="#home" class="feel-card" data-reveal data-reveal-delay="200" data-cursor="PLAY">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=70" alt="" class="feel-card__bg" loading="lazy" />
+          <span class="feel-card__icon"><i class="fa-solid fa-film"></i></span>
+          <span class="feel-card__text">MAKE IT<br />FEEL <span class="accent">REAL.</span></span>
+          <span class="feel-card__btn"><i class="fa-solid fa-arrow-up"></i></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mono"><span class="status-dot"></span>© 2024 OSMAN ARK. ALL RIGHTS RESERVED.</p>
+      <p class="mono">DESIGNED &amp; DEVELOPED WITH PASSION.</p>
+    </div>
+  </footer>
+
+  <!-- ================= SHOWREEL MODAL ================= -->
+  <div class="modal" id="reelModal" role="dialog" aria-modal="true" aria-label="Showreel" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__body">
+      <button class="modal__close" data-close aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+      <video id="reelVideo" controls playsinline webkit-playsinline preload="none"
+             poster="https://images.unsplash.com/photo-1515630278258-407f66498911?auto=format&fit=crop&w=1400&q=70">
+        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4" />
+        Browser Anda tidak mendukung video.
+      </video>
+      <p class="modal__caption mono">SHOWREEL 2024 • PLACEHOLDER — ganti dengan video Anda</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
